@@ -3,7 +3,10 @@ import StyledSearch from "../styles/StyledSearch";
 
 const Search = () => {
 	return (
-		<StyledSearch name='countrySearch' placeholder='Search for a country' />
+		<StyledSearch
+			name='countrySearch'
+			placeholder='Search for a country...'
+		/>
 	);
 };
 
