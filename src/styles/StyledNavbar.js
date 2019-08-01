@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const StyledHeader = styled.header`
 	background: ${props => props.theme.elements};
-	color: ${props => props.theme.text};
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -11,7 +10,7 @@ const StyledHeader = styled.header`
 	box-shadow: 0 0.6rem 0.5rem -0.5rem rgba(0, 0, 0, 0.2);
 
 	.title {
-		font-size: 1.2rem;
+		font-size: calc(1.69vw + 13.66px);
 	}
 
 	.theme {
@@ -126,6 +125,12 @@ const StyledHeader = styled.header`
 			-webkit-transform: translateX(1rem);
 			-ms-transform: translateX(1rem);
 			transform: translateX(1rem);
+		}
+	}
+
+	@media screen and (min-width: 1441px) {
+		.title {
+			font-size: 2.4rem;
 		}
 	}
 `;

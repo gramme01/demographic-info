@@ -1,6 +1,5 @@
 import React from "react";
 import { CountryConsumer } from "../Context";
-import { FaSun, FaMoon } from "react-icons/fa";
 import Header from "../styles/StyledNavbar";
 
 const Navbar = () => {

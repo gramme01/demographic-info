@@ -1,7 +1,8 @@
 import React from "react";
+import Search from "../components/Search";
 
 const MainPage = () => {
-	return <h1>Hello from MainPage</h1>;
+	return <Search />;
 };
 
 export default MainPage;
