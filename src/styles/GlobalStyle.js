@@ -14,7 +14,8 @@ const GlobalStyle = createGlobalStyle`
     max-width: 1440px;
     margin: 0 auto;
     background: ${props => props.theme.background};
-    color: ${props => props.theme.text}
+    color: ${props => props.theme.text};
+    font-weight: 300
   }
 
   h1, h2 {

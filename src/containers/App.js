@@ -33,7 +33,7 @@ function App() {
 							<Route exact path='/' component={MainPage} />
 							<Route
 								exact
-								path='/:country'
+								path='/:alpha3Code'
 								component={DetailsPage}
 							/>
 						</Switch>

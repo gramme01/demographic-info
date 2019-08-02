@@ -1,3 +1,5 @@
+import image from "./images/afg(1).svg";
+
 const data = [
 	{
 		name: "Afghanistan",
@@ -15,7 +17,7 @@ const data = [
 		area: 652230.0,
 		gini: 27.8,
 		timezones: ["UTC+04:30"],
-		borders: ["IRN", "PAK", "TKM", "UZB", "TJK", "CHN"],
+		borders: ["ALA", "ALB", "DZA", "BEL"],
 		nativeName: "افغانستان",
 		numericCode: "004",
 		currencies: [
@@ -57,7 +59,7 @@ const data = [
 			hr: "Afganistan",
 			fa: "افغانستان"
 		},
-		flag: "https://restcountries.eu/data/afg.svg",
+		flag: image,
 		regionalBlocs: [
 			{
 				acronym: "SAARC",
@@ -114,7 +116,7 @@ const data = [
 			hr: "Ålandski otoci",
 			fa: "جزایر الند"
 		},
-		flag: "https://restcountries.eu/data/ala.svg",
+		flag: image,
 		regionalBlocs: [
 			{
 				acronym: "EU",
@@ -141,7 +143,7 @@ const data = [
 		area: 28748.0,
 		gini: 34.5,
 		timezones: ["UTC+01:00"],
-		borders: ["MNE", "GRC", "MKD", "KOS"],
+		borders: ["ALA", "AFG", "DZA", "BEL"],
 		nativeName: "Shqipëria",
 		numericCode: "008",
 		currencies: [
@@ -171,7 +173,7 @@ const data = [
 			hr: "Albanija",
 			fa: "آلبانی"
 		},
-		flag: "https://restcountries.eu/data/alb.svg",
+		flag: image,
 		regionalBlocs: [
 			{
 				acronym: "CEFTA",
@@ -198,7 +200,7 @@ const data = [
 		area: 2381741.0,
 		gini: 35.3,
 		timezones: ["UTC+01:00"],
-		borders: ["TUN", "LBY", "NER", "ESH", "MRT", "MLI", "MAR"],
+		borders: ["ALA", "ALB", "AFG", "BEL"],
 		nativeName: "الجزائر",
 		numericCode: "012",
 		currencies: [
@@ -228,7 +230,7 @@ const data = [
 			hr: "Alžir",
 			fa: "الجزایر"
 		},
-		flag: "https://restcountries.eu/data/dza.svg",
+		flag: image,
 		regionalBlocs: [
 			{
 				acronym: "AU",
@@ -254,6 +256,276 @@ const data = [
 			}
 		],
 		cioc: "ALG"
+	},
+	{
+		name: "Belgium",
+		topLevelDomain: [".be"],
+		alpha2Code: "BE",
+		alpha3Code: "BEL",
+		callingCodes: ["32"],
+		capital: "Brussels",
+		altSpellings: [
+			"BE",
+			"België",
+			"Belgie",
+			"Belgien",
+			"Belgique",
+			"Kingdom of Belgium",
+			"Koninkrijk België",
+			"Royaume de Belgique",
+			"Königreich Belgien"
+		],
+		region: "Europe",
+		subregion: "Western Europe",
+		population: 11319511,
+		latlng: [50.83333333, 4.0],
+		demonym: "Belgian",
+		area: 30528.0,
+		gini: 33.0,
+		timezones: ["UTC+01:00"],
+		borders: ["ALA", "ALB", "DZA", "AFG"],
+		nativeName: "België",
+		numericCode: "056",
+		currencies: [
+			{
+				code: "EUR",
+				name: "Euro",
+				symbol: "€"
+			}
+		],
+		languages: [
+			{
+				iso639_1: "nl",
+				iso639_2: "nld",
+				name: "Dutch",
+				nativeName: "Nederlands"
+			},
+			{
+				iso639_1: "fr",
+				iso639_2: "fra",
+				name: "French",
+				nativeName: "français"
+			},
+			{
+				iso639_1: "de",
+				iso639_2: "deu",
+				name: "German",
+				nativeName: "Deutsch"
+			}
+		],
+		translations: {
+			de: "Belgien",
+			es: "Bélgica",
+			fr: "Belgique",
+			ja: "ベルギー",
+			it: "Belgio",
+			br: "Bélgica",
+			pt: "Bélgica",
+			nl: "België",
+			hr: "Belgija",
+			fa: "بلژیک"
+		},
+		flag: image,
+		regionalBlocs: [
+			{
+				acronym: "EU",
+				name: "European Union",
+				otherAcronyms: [],
+				otherNames: []
+			}
+		],
+		cioc: "BEL"
+	},
+	{
+		name: "Belize",
+		topLevelDomain: [".bz"],
+		alpha2Code: "BZ",
+		alpha3Code: "BLZ",
+		callingCodes: ["501"],
+		capital: "Belmopan",
+		altSpellings: ["BZ"],
+		region: "Americas",
+		subregion: "Central America",
+		population: 370300,
+		latlng: [17.25, -88.75],
+		demonym: "Belizean",
+		area: 22966.0,
+		gini: 53.1,
+		timezones: ["UTC-06:00"],
+		borders: ["ALA", "ALB", "DZA", "BEL"],
+		nativeName: "Belize",
+		numericCode: "084",
+		currencies: [
+			{
+				code: "BZD",
+				name: "Belize dollar",
+				symbol: "$"
+			}
+		],
+		languages: [
+			{
+				iso639_1: "en",
+				iso639_2: "eng",
+				name: "English",
+				nativeName: "English"
+			},
+			{
+				iso639_1: "es",
+				iso639_2: "spa",
+				name: "Spanish",
+				nativeName: "Español"
+			}
+		],
+		translations: {
+			de: "Belize",
+			es: "Belice",
+			fr: "Belize",
+			ja: "ベリーズ",
+			it: "Belize",
+			br: "Belize",
+			pt: "Belize",
+			nl: "Belize",
+			hr: "Belize",
+			fa: "بلیز"
+		},
+		flag: image,
+		regionalBlocs: [
+			{
+				acronym: "CARICOM",
+				name: "Caribbean Community",
+				otherAcronyms: [],
+				otherNames: [
+					"Comunidad del Caribe",
+					"Communauté Caribéenne",
+					"Caribische Gemeenschap"
+				]
+			},
+			{
+				acronym: "CAIS",
+				name: "Central American Integration System",
+				otherAcronyms: ["SICA"],
+				otherNames: ["Sistema de la Integración Centroamericana,"]
+			}
+		],
+		cioc: "BIZ"
+	},
+	{
+		name: "Benin",
+		topLevelDomain: [".bj"],
+		alpha2Code: "BJ",
+		alpha3Code: "BEN",
+		callingCodes: ["229"],
+		capital: "Porto-Novo",
+		altSpellings: ["BJ", "Republic of Benin", "République du Bénin"],
+		region: "Africa",
+		subregion: "Western Africa",
+		population: 10653654,
+		latlng: [9.5, 2.25],
+		demonym: "Beninese",
+		area: 112622.0,
+		gini: 38.6,
+		timezones: ["UTC+01:00"],
+		borders: ["ALA", "ALB", "DZA", "BEL"],
+		nativeName: "Bénin",
+		numericCode: "204",
+		currencies: [
+			{
+				code: "XOF",
+				name: "West African CFA franc",
+				symbol: "Fr"
+			}
+		],
+		languages: [
+			{
+				iso639_1: "fr",
+				iso639_2: "fra",
+				name: "French",
+				nativeName: "français"
+			}
+		],
+		translations: {
+			de: "Benin",
+			es: "Benín",
+			fr: "Bénin",
+			ja: "ベナン",
+			it: "Benin",
+			br: "Benin",
+			pt: "Benim",
+			nl: "Benin",
+			hr: "Benin",
+			fa: "بنین"
+		},
+		flag: image,
+		regionalBlocs: [
+			{
+				acronym: "AU",
+				name: "African Union",
+				otherAcronyms: [],
+				otherNames: [
+					"الاتحاد الأفريقي",
+					"Union africaine",
+					"União Africana",
+					"Unión Africana",
+					"Umoja wa Afrika"
+				]
+			}
+		],
+		cioc: "BEN"
+	},
+	{
+		name: "Bermuda",
+		topLevelDomain: [".bm"],
+		alpha2Code: "BM",
+		alpha3Code: "BMU",
+		callingCodes: ["1441"],
+		capital: "Hamilton",
+		altSpellings: [
+			"BM",
+			"The Islands of Bermuda",
+			"The Bermudas",
+			"Somers Isles"
+		],
+		region: "Americas",
+		subregion: "Northern America",
+		population: 61954,
+		latlng: [32.33333333, -64.75],
+		demonym: "Bermudian",
+		area: 54.0,
+		gini: null,
+		timezones: ["UTC-04:00"],
+		borders: [],
+		nativeName: "Bermuda",
+		numericCode: "060",
+		currencies: [
+			{
+				code: "BMD",
+				name: "Bermudian dollar",
+				symbol: "$"
+			}
+		],
+		languages: [
+			{
+				iso639_1: "en",
+				iso639_2: "eng",
+				name: "English",
+				nativeName: "English"
+			}
+		],
+		translations: {
+			de: "Bermuda",
+			es: "Bermudas",
+			fr: "Bermudes",
+			ja: "バミューダ",
+			it: "Bermuda",
+			br: "Bermudas",
+			pt: "Bermudas",
+			nl: "Bermuda",
+			hr: "Bermudi",
+			fa: "برمودا"
+		},
+		flag: image,
+		regionalBlocs: [],
+		cioc: "BER"
 	}
 ];
 

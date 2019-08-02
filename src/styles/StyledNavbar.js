@@ -10,7 +10,8 @@ const StyledHeader = styled.header`
 	box-shadow: 0 0.6rem 0.5rem -0.5rem rgba(0, 0, 0, 0.2);
 
 	.title {
-		font-size: calc(1.69vw + 13.66px);
+		font-weight: 600;
+		font-size: calc(20px + (38 - 20) * ((100vw - 375px) / (1440 - 375)));
 	}
 
 	.theme {

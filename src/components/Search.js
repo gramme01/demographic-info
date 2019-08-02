@@ -3,10 +3,14 @@ import StyledSearch from "../styles/StyledSearch";
 
 const Search = () => {
 	return (
-		<StyledSearch
-			name='countrySearch'
-			placeholder='Search for a country...'
-		/>
+		<StyledSearch className='searchfield'>
+			<i className='fas fa-search' />
+			<input
+				type='text'
+				name='countrySearch'
+				placeholder='Search for a country...'
+			/>
+		</StyledSearch>
 	);
 };
 
