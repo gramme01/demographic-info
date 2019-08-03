@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import data from "./data";
+import data from "./data2";
 
 const CountryContext = React.createContext();
 
 class CountryProvider extends Component {
 	state = {
 		countries: [],
+		filteredCountries: [],
 		darkMode: true
 	};
 
