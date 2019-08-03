@@ -5,7 +5,7 @@ import { CountryConsumer } from "../Context";
 import MainPage from "../pages/MainPage";
 import DetailsPage from "../pages/DetailsPage";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+
 import GlobalStyle from "../styles/GlobalStyle";
 
 function App() {
@@ -37,7 +37,7 @@ function App() {
 								component={DetailsPage}
 							/>
 						</Switch>
-						<Footer />
+
 						<GlobalStyle />
 					</>
 				</ThemeProvider>

@@ -3,7 +3,7 @@ import styled from "styled-components";
 const StyledSelect = styled.div`
 	width: 12.5rem;
 	position: relative;
-	margin: 1.5rem 1rem;
+	margin: 1rem 1rem;
 	font-size: 0.8rem;
 
 	button {

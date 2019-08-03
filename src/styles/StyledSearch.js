@@ -4,7 +4,7 @@ const StyledSearch = styled.div`
 	width: calc(100vw - 2rem);
 	max-width: 30rem;
 	background: ${({ theme }) => theme.elements};
-	margin: 1.5rem auto;
+	margin: 1rem 1.5rem;
 	height: 3.125rem;
 	border-radius: 0.5rem;
 	padding: 0 1rem;

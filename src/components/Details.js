@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { CountryContext } from "../Context";
-import { Link } from "react-router-dom";
 import StyledDetails from "../styles/StyledDetails";
+
+import StyledButtonPad0 from "../styles/StyledButtonPad0";
 
 export default class Details extends Component {
 	static contextType = CountryContext;
@@ -31,8 +32,7 @@ export default class Details extends Component {
 			topLevelDomain,
 			currencies,
 			languages,
-			borders,
-			alpha3Code
+			borders
 		} = country;
 
 		const objectArrayToString = (detail, property) => {
@@ -89,21 +89,17 @@ export default class Details extends Component {
 					</div>
 					<div className='border'>
 						<h3>Border Countries: </h3>
-						<div>
+						<div className='border-list'>
 							{borders.map(border => {
 								const neighbour = countries.find(
 									country => country.alpha3Code === border
 								);
 								return (
-									<button
-										onClick={() =>
-											this.props.borderClickHandler(
-												border
-											)
-										}
-										key={border}>
+									<StyledButtonPad0
+										key={border}
+										to={`/${border}`}>
 										{neighbour.name}
-									</button>
+									</StyledButtonPad0>
 								);
 							})}
 						</div>
@@ -113,22 +109,3 @@ export default class Details extends Component {
 		);
 	}
 }
-// 	const info = { ...country };
-
-// 	console.log(topLevelDomain);
-
-// 	// const arrayToString = property => {
-// 	// 	const str = "";
-// 	// 	property.forEach(el => {
-// 	// 		str += el;
-// 	// 	});
-// 	// 	return str;
-// 	// };
-
-// 	// const d = arrayToString(topLevelDomain);
-// 	return (
-
-// 	);
-// };
-
-// export default Details;

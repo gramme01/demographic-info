@@ -6,8 +6,21 @@ const StyledHeader = styled.header`
 	justify-content: space-between;
 	align-items: center;
 	height: 5rem;
-	padding: 1rem;
+	padding: 1rem 2rem;
 	box-shadow: 0 0.6rem 0.5rem -0.5rem rgba(0, 0, 0, 0.2);
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 900;
+
+	.wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		max-width: 1440px;
+		margin: 0 auto;
+	}
 
 	.title {
 		font-weight: 600;

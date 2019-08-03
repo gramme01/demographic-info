@@ -18,6 +18,7 @@ const StyledDetails = styled.div`
 
 	h2 {
 		margin: 1.5rem 0;
+		font-size: 1.8rem;
 	}
 
 	.details {
@@ -42,9 +43,58 @@ const StyledDetails = styled.div`
 		}
 	}
 
-	/* .border {
+	.border h3 {
+		font-weight: 600;
+		font-size: 1.2rem;
+	}
 
-	} */
+	.border-list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		align-items: flex-start;
+	}
+
+	@media screen and (min-width: 530px) {
+		.details {
+			flex-direction: row;
+			justify-content: space-between;
+		}
+	}
+
+	@media screen and (min-width: 800px) {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+
+		img {
+			width: 50%;
+			height: auto;
+		}
+
+		section {
+			width: 40%;
+		}
+
+		.details {
+			flex-direction: column;
+		}
+	}
+
+	@media screen and (min-width: 969px) {
+		img {
+			width: 40%;
+		}
+
+		section {
+			width: 50%;
+		}
+
+		.details {
+			flex-direction: row;
+			justify-content: space-between;
+		}
+	}
 `;
 
 export default StyledDetails;

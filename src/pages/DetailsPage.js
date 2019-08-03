@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Details from "../components/Details";
 import StyledButton from "../styles/StyledButton";
-import { Link } from "react-router-dom";
+import StyledMainPage from "../styles/StyledMainPage";
 
 export default class DetailsPage extends Component {
 	constructor(props) {
@@ -11,26 +11,16 @@ export default class DetailsPage extends Component {
 		};
 	}
 
-	borderClickHandler = dest => {
-		this.props.history.push({
-			pathname: `/${dest}`
-		});
-	};
-
 	render() {
 		console.log(this.props);
 		return (
-			<>
-				<StyledButton>
-					<Link to='/'>
-						<i className='fas fa-arrow-left' /> Back
-					</Link>
+			<StyledMainPage>
+				<StyledButton to='/'>
+					<i className='fas fa-arrow-left' />
+					Back
 				</StyledButton>
-				<Details
-					url={this.state.alpha3Code}
-					borderClickHandler={this.borderClickHandler}
-				/>
-			</>
+				<Details url={this.state.alpha3Code} />
+			</StyledMainPage>
 		);
 	}
 }

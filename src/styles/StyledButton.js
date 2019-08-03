@@ -1,11 +1,14 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-const StyledButton = styled.button`
-	margin: 2.5rem 1.5rem;
-	padding: 0.5rem 1.5rem;
+const StyledButton = styled(Link).attrs(props => ({ to: `${props.to}` }))`
+	margin: 1rem 1.5rem;
+	padding: 0.5rem 1rem;
 	background: ${({ theme }) => theme.elements};
 	color: ${({ theme }) => theme.text};
-	/* height: 2rem */
+	text-decoration: none;
+	display: inline-block;
+	/* height: 2rem; */
 	border: none;
 	outline: none;
 	font-size: 0.8rem;
@@ -13,7 +16,7 @@ const StyledButton = styled.button`
 	font-weight: 300;
 
 	.fas {
-		margin-right: 0.5rem;
+		margin-right: 1rem;
 	}
 `;
 
