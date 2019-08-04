@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 const StyledCountryCardList = styled.div`
-	margin: 1.5rem auto;
+	margin: 1rem auto;
 	max-width: 1440px;
-	padding: 2rem;
+	padding: 1rem 2rem;
 	display: grid;
 	justify-content: center;
 	grid-template-columns: repeat(auto-fill, minmax(16rem, 16rem));

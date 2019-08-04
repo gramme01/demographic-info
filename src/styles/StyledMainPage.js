@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledMainPage = styled.div`
-	margin: 5.5rem auto 0;
+	margin: 6rem auto 0;
 	max-width: 1440px;
 
 	.search {

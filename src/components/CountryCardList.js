@@ -7,8 +7,8 @@ const CountryCardList = () => {
 	return (
 		<StyledCountryCardList>
 			<CountryConsumer>
-				{({ countries }) =>
-					countries.map(country => (
+				{({ filteredCountries }) =>
+					filteredCountries.map(country => (
 						<CountryCard
 							key={country.alpha3Code}
 							country={country}

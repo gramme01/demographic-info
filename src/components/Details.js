@@ -11,7 +11,6 @@ export default class Details extends Component {
 		const { getCountryDetail } = this.context;
 		const { countries } = this.context;
 		const country = getCountryDetail(this.props.url);
-		console.log(countries);
 		if (!country) {
 			return (
 				<div className='error'>

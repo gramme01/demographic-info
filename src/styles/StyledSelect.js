@@ -6,7 +6,7 @@ const StyledSelect = styled.div`
 	padding-bottom: 1rem;
 	font-size: 0.8rem;
 	z-index: 1;
-	overflow: hidden;
+	overflow-y: hidden;
 
 	button {
 		position: relative;
