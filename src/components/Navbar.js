@@ -14,7 +14,8 @@ const Navbar = () => {
 								<input
 									type='checkbox'
 									name='themeSwitch'
-									onChange={() => value.themeToggleHandler()}
+									checked={value.darkMode}
+									onChange={value.themeToggleHandler}
 								/>
 								<span className='slider' />
 							</label>

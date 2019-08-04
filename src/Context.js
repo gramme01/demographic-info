@@ -97,7 +97,7 @@ class CountryProvider extends Component {
 	persistDarkMode = () => {
 		localStorage.setItem(
 			"darkMode",
-			JSON.stringify({ darkMode: `${this.state.darkMode}` })
+			JSON.stringify({ darkMode: this.state.darkMode })
 		);
 	};
 
