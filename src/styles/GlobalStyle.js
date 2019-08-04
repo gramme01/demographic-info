@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     background: ${props => props.theme.background};
     color: ${props => props.theme.text};
-    font-weight: 300
+    font-weight: 300;
   }
 
   h1, h2 {

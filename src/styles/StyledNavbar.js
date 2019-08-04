@@ -11,6 +11,7 @@ const StyledHeader = styled.header`
 	position: fixed;
 	top: 0;
 	width: 100%;
+	margin: 0 auto;
 	z-index: 900;
 
 	.wrapper {
@@ -25,6 +26,10 @@ const StyledHeader = styled.header`
 	.title {
 		font-weight: 600;
 		font-size: calc(20px + (38 - 20) * ((100vw - 375px) / (1440 - 375)));
+	}
+
+	p {
+		font-size: 0.8rem;
 	}
 
 	.theme {
@@ -103,6 +108,10 @@ const StyledHeader = styled.header`
 
 		.theme {
 			flex-flow: row nowrap;
+		}
+
+		p {
+			font-size: 1.2rem;
 		}
 
 		.slider {

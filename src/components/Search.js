@@ -5,9 +5,10 @@ import StyledSearch from "../styles/StyledSearch";
 const Search = () => {
 	return (
 		<CountryConsumer>
-			{({ searchHandler, search }) => (
+			{({ searchHandler, search, searchSubmit }) => (
 				<StyledSearch className='searchfield'>
-					<i className='fas fa-search' />
+					<i className='fas fa-search' onClick={searchSubmit} />
+
 					<input
 						type='text'
 						name='countrySearch'
