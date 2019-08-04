@@ -15,6 +15,7 @@ const Search = () => {
 						placeholder='Search for a country...'
 						value={search}
 						onChange={searchHandler}
+						onSubmit={searchSubmit}
 					/>
 				</StyledSearch>
 			)}

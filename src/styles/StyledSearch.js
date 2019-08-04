@@ -11,8 +11,19 @@ const StyledSearch = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
-	font-size: 0.8rem;
+	font-size: 1rem;
 	box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+
+	.fas {
+		display: inline-block;
+		width: 4rem;
+		text-align: center;
+		line-height: 3.125rem;
+
+		:hover {
+			background: ${({ theme }) => theme.background};
+		}
+	}
 
 	input {
 		width: 80%;
@@ -21,6 +32,7 @@ const StyledSearch = styled.div`
 		border: none;
 		outline: none;
 		caret-color: ${({ theme }) => theme.placeholder};
+		font-size: 1rem;
 
 		::placeholder {
 			color: ${({ theme }) => theme.placeholder};

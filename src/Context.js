@@ -4,6 +4,8 @@ import React, { Component } from "react";
 const CountryContext = React.createContext();
 
 class CountryProvider extends Component {
+	savedState = JSON.parse(localStorage.getItem("darkMode"));
+
 	state = {
 		countries: [],
 		filteredCountries: [],
@@ -11,11 +13,12 @@ class CountryProvider extends Component {
 		url: "https://restcountries.eu/rest/v2/all",
 		searchUrl: "https://restcountries.eu/rest/v2/name/",
 		error: "",
-		darkMode: true
+		darkMode: this.savedState ? this.savedState.darkMode : true
 	};
 
 	componentDidMount() {
 		this.getData();
+		this.persistDarkMode();
 	}
 
 	getData = async () => {
@@ -52,7 +55,10 @@ class CountryProvider extends Component {
 	};
 
 	themeToggleHandler = () => {
-		this.setState(prev => ({ darkMode: !prev.darkMode }));
+		this.setState(
+			prev => ({ darkMode: !prev.darkMode }),
+			() => this.persistDarkMode()
+		);
 	};
 
 	filterByLabel = label => {
@@ -85,6 +91,13 @@ class CountryProvider extends Component {
 			() => {
 				this.getData();
 			}
+		);
+	};
+
+	persistDarkMode = () => {
+		localStorage.setItem(
+			"darkMode",
+			JSON.stringify({ darkMode: `${this.state.darkMode}` })
 		);
 	};
 
