@@ -12,7 +12,6 @@ export default class DetailsPage extends Component {
 	}
 
 	render() {
-		console.log(this.props);
 		return (
 			<StyledMainPage>
 				<StyledButton to='/'>

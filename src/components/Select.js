@@ -1,28 +1,68 @@
-import React from "react";
+import React, { useState } from "react";
+import { CountryConsumer } from "../Context";
 import StyledSelect from "../styles/StyledSelect";
 
 const Select = () => {
+	//states
+	const [isOpen, setIsOpen] = useState(false);
+	const [label, setLabel] = useState("Filter by Region");
+
+	//handlers
+	const openToggleHandler = () => {
+		setIsOpen(prev => !prev);
+	};
+
+	const labelChangeHandler = item => {
+		if (item === "All") {
+			setLabel("Filter by Region");
+		} else {
+			setLabel(item);
+		}
+		openToggleHandler();
+	};
+
+	//utility
+	const fetchUnique = (items, type) => [
+		...new Set(items.map(item => item[type]))
+	];
+
 	return (
-		<StyledSelect>
-			<button>
-				Filter by Region <i className='fas fa-chevron-down' />
-			</button>
-			<ul className='options'>
-				<li className='option'>Africa</li>
-				<li className='option'>America</li>
-				<li className='option'>Asia</li>
-				<li className='option'>Europe</li>
-				<li className='option'>Oceania</li>
-			</ul>
-			{/* <select name='filter'>
-				<option value=''>Filter by Region</option>
-				<option value='Africa'>Africa</option>
-				<option value='Americas'>America</option>
-				<option value='Asia'>Asia</option>
-				<option value='Europe'>Europe</option>
-				<option value='Oceania'>Oceania</option>
-			</select> */}
-		</StyledSelect>
+		<CountryConsumer>
+			{value => {
+				const regions = fetchUnique(value.countries, "region");
+				regions.sort();
+				const filterList = ["All", ...regions].filter(
+					item => item !== ""
+				);
+				console.log(filterList);
+				return (
+					<StyledSelect>
+						<button onClick={() => openToggleHandler()}>
+							{label}
+							<i
+								className={
+									isOpen
+										? "fas fa-chevron-up"
+										: "fas fa-chevron-down"
+								}
+							/>
+						</button>
+
+						<ul className={isOpen ? "options" : "options hidden"}>
+							{filterList.map(item => (
+								<li
+									key={item}
+									value={item}
+									className='option'
+									onClick={() => labelChangeHandler(item)}>
+									{item}
+								</li>
+							))}
+						</ul>
+					</StyledSelect>
+				);
+			}}
+		</CountryConsumer>
 	);
 };
 

@@ -2,9 +2,11 @@ import styled from "styled-components";
 
 const StyledSelect = styled.div`
 	width: 12.5rem;
-	position: relative;
-	margin: 1rem 1rem;
+	margin: 1rem 2rem;
+	padding-bottom: 1rem;
 	font-size: 0.8rem;
+	z-index: 1;
+	overflow: hidden;
 
 	button {
 		position: relative;
@@ -16,9 +18,10 @@ const StyledSelect = styled.div`
 		border: none;
 		outline: none;
 		text-align: left;
-		color: ${({ theme }) => theme.text};
+		color: ${({ theme }) => theme.placeholder};
 		cursor: pointer;
 		box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+		z-index: 2;
 	}
 
 	.fas {
@@ -27,15 +30,18 @@ const StyledSelect = styled.div`
 	}
 
 	.options {
-		visibility: hidden;
-		position: absolute;
 		background: ${({ theme }) => theme.elements};
 		margin-top: 0.4rem;
 		width: 100%;
-		z-index: 100;
 		padding: 0.5rem 1.4rem;
 		border-radius: 0.5rem;
-		box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+		transition: all 0.5s linear;
+	}
+
+	.hidden {
+		transform: translateY(-100%);
+		visibility: hidden;
 	}
 
 	.option {
@@ -43,11 +49,7 @@ const StyledSelect = styled.div`
 		margin-top: 0.2rem;
 		padding: 0.4rem 0;
 		cursor: pointer;
-		color: ${({ theme }) => theme.placeholder};
-
-		:hover {
-			color: ${({ theme }) => theme.text};
-		}
+		color: ${({ theme }) => theme.text};
 
 		:first-child {
 			margin-top: 0;
