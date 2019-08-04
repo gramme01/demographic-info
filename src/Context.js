@@ -20,7 +20,7 @@ class CountryProvider extends Component {
 			const singleItem = { ...item };
 			response = [...response, singleItem];
 		});
-		this.setState({ countries: response });
+		this.setState({ countries: response, filteredCountries: response });
 	};
 
 	getCountryDetail = alpha3Code => {
@@ -36,13 +36,29 @@ class CountryProvider extends Component {
 		this.setState(prev => ({ darkMode: !prev.darkMode }));
 	};
 
+	filterByLabel = label => {
+		let tempCountries = [...this.state.countries];
+		if (label !== "Filter by Region") {
+			tempCountries = tempCountries.filter(
+				country => country.region === label
+			);
+		}
+		this.setState(
+			() => ({ filteredCountries: tempCountries }),
+			() => {
+				console.log(this.state.filteredCountries);
+			}
+		);
+	};
+
 	render() {
 		return (
 			<CountryContext.Provider
 				value={{
 					...this.state,
 					themeToggleHandler: this.themeToggleHandler,
-					getCountryDetail: this.getCountryDetail
+					getCountryDetail: this.getCountryDetail,
+					filterByLabel: this.filterByLabel
 				}}>
 				{this.props.children}
 			</CountryContext.Provider>

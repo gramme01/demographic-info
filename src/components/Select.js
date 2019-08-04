@@ -1,69 +1,73 @@
-import React, { useState } from "react";
-import { CountryConsumer } from "../Context";
+import React, { Component } from "react";
+import { CountryContext } from "../Context";
 import StyledSelect from "../styles/StyledSelect";
 
-const Select = () => {
-	//states
-	const [isOpen, setIsOpen] = useState(false);
-	const [label, setLabel] = useState("Filter by Region");
+class Select extends Component {
+	static contextType = CountryContext;
 
-	//handlers
-	const openToggleHandler = () => {
-		setIsOpen(prev => !prev);
+	state = {
+		isOpen: false,
+		label: "Filter by Region"
 	};
 
-	const labelChangeHandler = item => {
+	//handlers
+	openToggleHandler = () => {
+		this.setState(prev => ({ isOpen: !prev.isOpen }));
+	};
+
+	labelChangeHandler = item => {
 		if (item === "All") {
-			setLabel("Filter by Region");
+			this.setState(
+				prev => ({ label: "Filter by Region" }),
+				() => {
+					this.openToggleHandler();
+					this.context.filterByLabel(this.state.label);
+				}
+			);
 		} else {
-			setLabel(item);
+			this.setState(
+				prev => ({ label: item }),
+				() => {
+					this.openToggleHandler();
+					this.context.filterByLabel(this.state.label);
+				}
+			);
 		}
-		openToggleHandler();
 	};
 
 	//utility
-	const fetchUnique = (items, type) => [
-		...new Set(items.map(item => item[type]))
-	];
+	fetchUnique = (items, type) => [...new Set(items.map(item => item[type]))];
 
-	return (
-		<CountryConsumer>
-			{value => {
-				const regions = fetchUnique(value.countries, "region");
-				regions.sort();
-				const filterList = ["All", ...regions].filter(
-					item => item !== ""
-				);
-				console.log(filterList);
-				return (
-					<StyledSelect>
-						<button onClick={() => openToggleHandler()}>
-							{label}
-							<i
-								className={
-									isOpen
-										? "fas fa-chevron-up"
-										: "fas fa-chevron-down"
-								}
-							/>
-						</button>
+	render() {
+		const { label, isOpen } = this.state;
+		const regions = this.fetchUnique(this.context.countries, "region");
+		regions.sort();
+		const filterList = ["All", ...regions].filter(item => item !== "");
+		return (
+			<StyledSelect>
+				<button onClick={() => this.openToggleHandler()}>
+					{label}
+					<i
+						className={
+							isOpen ? "fas fa-chevron-up" : "fas fa-chevron-down"
+						}
+					/>
+				</button>
 
-						<ul className={isOpen ? "options" : "options hidden"}>
-							{filterList.map(item => (
-								<li
-									key={item}
-									value={item}
-									className='option'
-									onClick={() => labelChangeHandler(item)}>
-									{item}
-								</li>
-							))}
-						</ul>
-					</StyledSelect>
-				);
-			}}
-		</CountryConsumer>
-	);
-};
+				<ul className={isOpen ? "options" : "options hidden"}>
+					{filterList.map(item => (
+						<li
+							key={item}
+							value={item}
+							className='option'
+							onClick={() => this.labelChangeHandler(item)}>
+							{item}
+						</li>
+					))}
+				</ul>
+			</StyledSelect>
+		);
+	}
+}
 
 export default Select;
