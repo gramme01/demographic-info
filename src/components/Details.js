@@ -7,10 +7,16 @@ import StyledButtonPad0 from "../styles/StyledButtonPad0";
 export default class Details extends Component {
 	static contextType = CountryContext;
 
+	state = { url: this.props.url };
+
+	navigation = border => {
+		this.setState(() => ({ url: border }));
+	};
+
 	render() {
 		const { getCountryDetail } = this.context;
 		const { countries } = this.context;
-		const country = getCountryDetail(this.props.url);
+		const country = getCountryDetail(this.state.url);
 		console.log(countries);
 		if (!country) {
 			return (
@@ -97,7 +103,8 @@ export default class Details extends Component {
 								return (
 									<StyledButtonPad0
 										key={border}
-										to={`/${border}`}>
+										to={`/${border}`}
+										onClick={() => this.navigation(border)}>
 										{neighbour.name}
 									</StyledButtonPad0>
 								);

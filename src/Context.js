@@ -7,6 +7,7 @@ class CountryProvider extends Component {
 	state = {
 		countries: [],
 		filteredCountries: [],
+		search: "",
 		darkMode: true
 	};
 
@@ -51,6 +52,10 @@ class CountryProvider extends Component {
 		);
 	};
 
+	searchHandler = e => {
+		console.log(e);
+	};
+
 	render() {
 		return (
 			<CountryContext.Provider
@@ -58,7 +63,8 @@ class CountryProvider extends Component {
 					...this.state,
 					themeToggleHandler: this.themeToggleHandler,
 					getCountryDetail: this.getCountryDetail,
-					filterByLabel: this.filterByLabel
+					filterByLabel: this.filterByLabel,
+					searchHandler: this.searchHandler
 				}}>
 				{this.props.children}
 			</CountryContext.Provider>

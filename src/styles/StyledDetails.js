@@ -46,6 +46,7 @@ const StyledDetails = styled.div`
 	.border h3 {
 		font-weight: 600;
 		font-size: 1.2rem;
+		margin-bottom: 0.5rem;
 	}
 
 	.border-list {
