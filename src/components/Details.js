@@ -102,7 +102,6 @@ export default class Details extends Component {
 								return (
 									<StyledButtonPad0
 										key={border}
-										to={`/${border}`}
 										onClick={() => this.navigation(border)}>
 										{neighbour.name}
 									</StyledButtonPad0>

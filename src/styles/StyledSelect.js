@@ -12,13 +12,14 @@ const StyledSelect = styled.div`
 		position: relative;
 		width: 100%;
 		height: 3.125rem;
-		border-radius: 0.5rem;
 		background: ${({ theme }) => theme.elements};
+		color: ${({ theme }) => theme.placeholder};
+		border-radius: 0.5rem;
 		padding: 0 1.4rem;
+		font-size: 1rem;
 		border: none;
 		outline: none;
 		text-align: left;
-		color: ${({ theme }) => theme.placeholder};
 		cursor: pointer;
 		box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 		z-index: 2;

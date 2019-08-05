@@ -4,6 +4,7 @@ import React, { Component } from "react";
 const CountryContext = React.createContext();
 
 class CountryProvider extends Component {
+	//Everything about initializing state
 	savedState = JSON.parse(localStorage.getItem("darkMode"));
 
 	state = {
@@ -11,8 +12,7 @@ class CountryProvider extends Component {
 		filteredCountries: [],
 		search: "",
 		url: "https://restcountries.eu/rest/v2/all",
-		searchUrl: "https://restcountries.eu/rest/v2/name/",
-		error: "",
+		error: "Loading",
 		darkMode: this.savedState ? this.savedState.darkMode : true
 	};
 
@@ -21,12 +21,28 @@ class CountryProvider extends Component {
 		this.persistDarkMode();
 	}
 
+	//Event Handlers
+	themeToggleHandler = () => {
+		this.setState(
+			prev => ({ darkMode: !prev.darkMode }),
+			() => this.persistDarkMode()
+		);
+	};
+
+	searchHandler = e => {
+		this.setState({ search: e.target.value }, () => this.filterBySearch());
+	};
+
+	//utilities
 	getData = async () => {
 		try {
 			const data = await fetch(this.state.url);
 			const response = await data.json();
+			response.forEach(item => {
+				item.population = this.formatNumbersWithComma(item.population);
+			});
 			if (response.length === 0) {
-				this.setState(() => ({ error: "No Results Found" }));
+				this.setState(() => ({ error: "Oops, could not connect" }));
 			} else {
 				this.setState(() => ({
 					countries: response,
@@ -39,26 +55,12 @@ class CountryProvider extends Component {
 		}
 	};
 
-	// let response = [];
-	// data.forEach(item => {
-	// 	const singleItem = { ...item };
-	// 	response = [...response, singleItem];
-	// });
-	// this.setState({ countries: response, filteredCountries: response });
-
 	getCountryDetail = alpha3Code => {
 		let tempCountries = [...this.state.countries];
 		const country = tempCountries.find(
 			country => country.alpha3Code === alpha3Code
 		);
 		return country;
-	};
-
-	themeToggleHandler = () => {
-		this.setState(
-			prev => ({ darkMode: !prev.darkMode }),
-			() => this.persistDarkMode()
-		);
 	};
 
 	filterByLabel = label => {
@@ -68,30 +70,27 @@ class CountryProvider extends Component {
 				country => country.region === label
 			);
 		}
-		this.setState(
-			() => ({ filteredCountries: tempCountries }),
-			() => {
-				console.log(this.state.filteredCountries);
-			}
-		);
+		this.setState(() => ({ filteredCountries: tempCountries }));
 	};
 
-	searchHandler = e => {
-		this.setState({ search: e.target.value });
-	};
+	searchCountriesByParameter = (obj, property, param) =>
+		obj[property].toLowerCase().includes(param.toLowerCase());
 
-	searchSubmit = e => {
-		e.preventDefault();
-		const { search, searchUrl } = this.state;
-		this.setState(
-			{
-				url: `${searchUrl}${search}`,
-				search: ""
-			},
-			() => {
-				this.getData();
-			}
+	filterBySearch = () => {
+		const { countries, search } = this.state;
+		let tempCountries = [...countries];
+		const searchedCountries = tempCountries.filter(
+			country =>
+				this.searchCountriesByParameter(country, "name", search) ||
+				this.searchCountriesByParameter(country, "demonym", search) ||
+				this.searchCountriesByParameter(
+					country,
+					"nativeName",
+					search
+				) ||
+				this.searchCountriesByParameter(country, "capital", search)
 		);
+		this.setState(() => ({ filteredCountries: searchedCountries }));
 	};
 
 	persistDarkMode = () => {
@@ -101,6 +100,9 @@ class CountryProvider extends Component {
 		);
 	};
 
+	formatNumbersWithComma = num =>
+		num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
 	render() {
 		return (
 			<CountryContext.Provider
@@ -109,8 +111,8 @@ class CountryProvider extends Component {
 					themeToggleHandler: this.themeToggleHandler,
 					getCountryDetail: this.getCountryDetail,
 					filterByLabel: this.filterByLabel,
-					searchHandler: this.searchHandler,
-					searchSubmit: this.searchSubmit
+					filterBySearch: this.filterBySearch,
+					searchHandler: this.searchHandler
 				}}>
 				{this.props.children}
 			</CountryContext.Provider>
