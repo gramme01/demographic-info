@@ -10,23 +10,17 @@ const StyledSearch = styled.div`
 	padding: 0 1rem;
 	display: flex;
 	align-items: center;
-	justify-content: space-around;
 	font-size: 1rem;
 	box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 
 	.fas {
-		display: inline-block;
-		width: 4rem;
 		text-align: center;
 		line-height: 3.125rem;
-
-		:hover {
-			background: ${({ theme }) => theme.background};
-		}
+		margin-right: 1rem;
 	}
 
 	input {
-		width: 80%;
+		flex: 1;
 		color: ${({ theme }) => theme.text};
 		background: transparent;
 		border: none;
