@@ -63,7 +63,6 @@ const StyledHeader = styled.header`
 		bottom: 0;
 		border-radius: 3rem;
 		background-color: ${props => props.theme.text};
-		-webkit-transition: 0.4s;
 		transition: 0.4s;
 	}
 
@@ -76,7 +75,6 @@ const StyledHeader = styled.header`
 		bottom: 0.15rem;
 		border-radius: 50%;
 		background-color: ${props => props.theme.background};
-		-webkit-transition: 0.4s;
 		transition: 0.4s;
 	}
 
@@ -85,8 +83,6 @@ const StyledHeader = styled.header`
 	}
 
 	input:checked + .slider:before {
-		-webkit-transform: translateX(0.75rem);
-		-ms-transform: translateX(0.75rem);
 		transform: translateX(0.75rem);
 	}
 
@@ -94,16 +90,9 @@ const StyledHeader = styled.header`
 		padding: 1rem 5vw;
 
 		.toggle {
-			position: relative;
 			width: 2.4rem;
 			height: 1.4rem;
 			margin: 0.8rem;
-		}
-
-		.toggle input {
-			opacity: 0;
-			width: 0;
-			height: 0;
 		}
 
 		.theme {
@@ -115,38 +104,17 @@ const StyledHeader = styled.header`
 		}
 
 		.slider {
-			position: absolute;
-			cursor: pointer;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
 			border-radius: 4rem;
-			background-color: ${props => props.theme.text};
-			-webkit-transition: 0.4s;
-			transition: 0.4s;
 		}
 
 		.slider:before {
-			position: absolute;
-			content: "";
 			height: 1rem;
 			width: 1rem;
 			left: 0.2rem;
 			bottom: 0.2rem;
-			border-radius: 50%;
-			background-color: ${props => props.theme.background};
-			-webkit-transition: 0.4s;
-			transition: 0.4s;
-		}
-
-		input:focus + .slider {
-			box-shadow: 0 0 1px #2196f3;
 		}
 
 		input:checked + .slider:before {
-			-webkit-transform: translateX(1rem);
-			-ms-transform: translateX(1rem);
 			transform: translateX(1rem);
 		}
 	}

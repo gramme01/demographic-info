@@ -33,6 +33,7 @@ const StyledSearch = styled.div`
 		outline: none;
 		caret-color: ${({ theme }) => theme.placeholder};
 		font-size: 1rem;
+		line-height: 2.5rem;
 
 		::placeholder {
 			color: ${({ theme }) => theme.placeholder};

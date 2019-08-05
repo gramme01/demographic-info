@@ -8,7 +8,6 @@ const StyledButton = styled(Link).attrs(props => ({ to: `${props.to}` }))`
 	color: ${({ theme }) => theme.text};
 	text-decoration: none;
 	display: inline-block;
-	/* height: 2rem; */
 	border: none;
 	outline: none;
 	font-size: 0.8rem;
