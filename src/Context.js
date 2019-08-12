@@ -10,7 +10,9 @@ class CountryProvider extends Component {
 	state = {
 		countries: [],
 		filteredCountries: [],
+		renderedCountries: [],
 		search: "",
+		filterBy: null,
 		url: "https://restcountries.eu/rest/v2/all",
 		error: "Loading",
 		darkMode: this.savedState ? this.savedState.darkMode : true
@@ -47,6 +49,7 @@ class CountryProvider extends Component {
 				this.setState(() => ({
 					countries: response,
 					filteredCountries: response,
+					renderedCountries: response,
 					error: ""
 				}));
 			}
@@ -70,15 +73,22 @@ class CountryProvider extends Component {
 				country => country.region === label
 			);
 		}
-		this.setState(() => ({ filteredCountries: tempCountries }));
+		this.setState(
+			() => ({
+				filteredCountries: tempCountries,
+				renderedCountries: tempCountries,
+				filterBy: label
+			}),
+			() => this.filterBySearch()
+		);
 	};
 
 	searchCountriesByParameter = (obj, property, param) =>
 		obj[property].toLowerCase().includes(param.toLowerCase());
 
 	filterBySearch = () => {
-		const { countries, search } = this.state;
-		let tempCountries = [...countries];
+		const { filteredCountries, search } = this.state;
+		let tempCountries = [...filteredCountries];
 		const searchedCountries = tempCountries.filter(
 			country =>
 				this.searchCountriesByParameter(country, "name", search) ||
@@ -90,7 +100,7 @@ class CountryProvider extends Component {
 				) ||
 				this.searchCountriesByParameter(country, "capital", search)
 		);
-		this.setState(() => ({ filteredCountries: searchedCountries }));
+		this.setState(() => ({ renderedCountries: searchedCountries }));
 	};
 
 	persistDarkMode = () => {

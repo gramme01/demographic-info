@@ -7,7 +7,7 @@ class Select extends Component {
 
 	state = {
 		isOpen: false,
-		label: "Filter by Region"
+		label: this.context.filterBy || "Filter by Region"
 	};
 
 	//handlers

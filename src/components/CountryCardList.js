@@ -7,8 +7,8 @@ import CountryCard from "./CountryCard";
 const CountryCardList = () => {
 	return (
 		<CountryConsumer>
-			{({ filteredCountries, error }) =>
-				filteredCountries.length === 0 ? (
+			{({ renderedCountries, error }) =>
+				renderedCountries.length === 0 ? (
 					<StyledErrorList>
 						<div>
 							<div className='flag'>?</div>
@@ -19,7 +19,7 @@ const CountryCardList = () => {
 					</StyledErrorList>
 				) : (
 					<StyledCountryCardList>
-						{filteredCountries.map(country => (
+						{renderedCountries.map(country => (
 							<CountryCard
 								key={country.alpha3Code}
 								country={country}
