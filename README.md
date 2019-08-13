@@ -78,3 +78,13 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 - Click on a country to see more detailed information on a separate page
 - Click through to the border countries on the detail page
 - Toggle the color scheme between light and dark mode
+
+### `v1.1`
+Fixed 2 bugs
+- While searching for a country with `input`, it searches from countries rendered by the filter by region select menu instead of all countries. 
+  
+  e.g. searching for 'Nigeria' when the selected region is 'Americas' yields no result
+
+- Clicking the back button on the details page does not reset the select toggle dropdown to "Filter By Region" instead, it keeps the previous value
+
+  ![Solution v1.0](./video/v1.1.gif)
