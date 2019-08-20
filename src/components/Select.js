@@ -6,8 +6,7 @@ class Select extends Component {
 	static contextType = CountryContext;
 
 	state = {
-		isOpen: false,
-		label: this.context.filterBy || "Filter by Region"
+		isOpen: false
 	};
 
 	//handlers
@@ -15,38 +14,18 @@ class Select extends Component {
 		this.setState(prev => ({ isOpen: !prev.isOpen }));
 	};
 
-	labelChangeHandler = item => {
-		if (item === "All") {
-			this.setState(
-				prev => ({ label: "Filter by Region" }),
-				() => {
-					this.openToggleHandler();
-					this.context.filterByLabel(this.state.label);
-				}
-			);
-		} else {
-			this.setState(
-				prev => ({ label: item }),
-				() => {
-					this.openToggleHandler();
-					this.context.filterByLabel(this.state.label);
-				}
-			);
-		}
-	};
-
 	//utility
 	fetchUnique = (items, type) => [...new Set(items.map(item => item[type]))];
 
 	render() {
-		const { label, isOpen } = this.state;
+		const { isOpen } = this.state;
 		const regions = this.fetchUnique(this.context.countries, "region");
 		regions.sort();
 		const filterList = ["All", ...regions].filter(item => item !== "");
 		return (
 			<StyledSelect>
 				<button onClick={() => this.openToggleHandler()}>
-					{label}
+					{this.context.label}
 					<i
 						className={
 							isOpen ? "fas fa-chevron-up" : "fas fa-chevron-down"
@@ -60,7 +39,10 @@ class Select extends Component {
 							key={item}
 							value={item}
 							className='option'
-							onClick={() => this.labelChangeHandler(item)}>
+							onClick={() => {
+								this.context.labelChangeHandler(item);
+								this.openToggleHandler();
+							}}>
 							{item}
 						</li>
 					))}

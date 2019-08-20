@@ -13,6 +13,7 @@ class CountryProvider extends Component {
 		renderedCountries: [],
 		search: "",
 		filterBy: null,
+		label: "Filter by Region",
 		url: "https://restcountries.eu/rest/v2/all",
 		error: "Loading",
 		darkMode: this.savedState ? this.savedState.darkMode : true
@@ -35,14 +36,33 @@ class CountryProvider extends Component {
 		this.setState({ search: e.target.value }, () => this.filterBySearch());
 	};
 
+	labelChangeHandler = item => {
+		if (item === "All") {
+			this.setState(
+				prev => ({ label: "Filter by Region" }),
+				() => {
+					this.filterByLabel(this.state.label);
+				}
+			);
+		} else {
+			this.setState(
+				prev => ({ label: item }),
+				() => {
+					this.filterByLabel(this.state.label);
+				}
+			);
+		}
+	};
+
 	//utilities
 	resetApp = () => {
-		const tempCountries = this.state.countries;
+		const tempCountries = [...this.state.countries];
 		this.setState({
 			filteredCountries: tempCountries,
 			renderedCountries: tempCountries,
 			search: "",
-			filterBy: null
+			filterBy: null,
+			label: "Filter by Region"
 		});
 	};
 
@@ -131,6 +151,7 @@ class CountryProvider extends Component {
 					themeToggleHandler: this.themeToggleHandler,
 					getCountryDetail: this.getCountryDetail,
 					filterByLabel: this.filterByLabel,
+					labelChangeHandler: this.labelChangeHandler,
 					filterBySearch: this.filterBySearch,
 					searchHandler: this.searchHandler,
 					resetApp: this.resetApp
