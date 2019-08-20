@@ -36,6 +36,16 @@ class CountryProvider extends Component {
 	};
 
 	//utilities
+	resetApp = () => {
+		const tempCountries = this.state.countries;
+		this.setState({
+			filteredCountries: tempCountries,
+			renderedCountries: tempCountries,
+			search: "",
+			filterBy: null
+		});
+	};
+
 	getData = async () => {
 		try {
 			const data = await fetch(this.state.url);
@@ -122,7 +132,8 @@ class CountryProvider extends Component {
 					getCountryDetail: this.getCountryDetail,
 					filterByLabel: this.filterByLabel,
 					filterBySearch: this.filterBySearch,
-					searchHandler: this.searchHandler
+					searchHandler: this.searchHandler,
+					resetApp: this.resetApp
 				}}>
 				{this.props.children}
 			</CountryContext.Provider>

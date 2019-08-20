@@ -1,14 +1,19 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import { CountryConsumer } from "../Context";
 import Header from "../styles/StyledNavbar";
 
-const Navbar = () => {
+const Navbar = props => {
+	console.log(props);
+	//handle push to history and reset of state
 	return (
 		<CountryConsumer>
 			{value => (
 				<Header>
 					<div className='wrapper'>
-						<h1 className='title'>Where in the world?</h1>
+						<h1 className='title' onClick={value.resetApp}>
+							Where in the world?
+						</h1>
 						<div className='theme'>
 							<label className='toggle'>
 								<input
@@ -36,4 +41,4 @@ const Navbar = () => {
 	);
 };
 
-export default Navbar;
+export default withRouter(Navbar);

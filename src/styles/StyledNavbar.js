@@ -26,6 +26,7 @@ const StyledHeader = styled.header`
 	.title {
 		font-weight: 600;
 		font-size: calc(20px + (38 - 20) * ((100vw - 375px) / (1440 - 375)));
+		cursor: pointer;
 	}
 
 	p {
