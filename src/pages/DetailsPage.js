@@ -14,7 +14,7 @@ export default class DetailsPage extends Component {
 	render() {
 		return (
 			<StyledMainPage>
-				<StyledButton to='/'>
+				<StyledButton margin>
 					<i className='fas fa-arrow-left' />
 					Back
 				</StyledButton>

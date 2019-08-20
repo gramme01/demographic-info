@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { CountryContext } from "../Context";
 import StyledDetails from "../styles/StyledDetails";
 
-import StyledButtonPad0 from "../styles/StyledButtonPad0";
+import StyledButton from "../styles/StyledButton";
 
 export default class Details extends Component {
 	static contextType = CountryContext;
@@ -100,11 +100,11 @@ export default class Details extends Component {
 									country => country.alpha3Code === border
 								);
 								return (
-									<StyledButtonPad0
+									<StyledButton
 										key={border}
 										onClick={() => this.navigation(border)}>
 										{neighbour.name}
-									</StyledButtonPad0>
+									</StyledButton>
 								);
 							})}
 						</div>
