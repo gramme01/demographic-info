@@ -13,7 +13,7 @@ class CountryProvider extends Component {
 		renderedCountries: [],
 		search: "",
 		filterBy: null,
-		url: "https://restcountries.com/rest/v2/all",
+		url: "https://restcountries.com/v2/all",
 		error: "Loading",
 		darkMode: this.savedState ? this.savedState.darkMode : true
 	};
